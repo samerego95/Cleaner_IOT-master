@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="Cleaner_IOT.ImpostazioniAvanzate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cleaner_IOT"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="800" Height="480"
+    Loading="Page_Loading" Loaded="Page_Loaded">
+
+    <Grid>
+        <CommandBar x:Name="BarraPulsanti" Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top" CompositeMode="Inherit">
+            <CommandBar.Content>
+                <TextBlock Text="{x:Bind Path=txtHeader}" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Back" ClickMode="Press" Click="Esci_Click"/>
+        </CommandBar>
+        <StackPanel Orientation="Vertical" Margin="30,80,332,48">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <TextBox Name="pesoRealeIngresso" Header="{x:Bind Path=headerCalibrazioneIngresso}"
+                        Text="0,0" Width="300" FontSize="20" TextChanged="reloadTimeout"/>
+
+                <!--Bottone Salva a fianco di peso ingresso-->
+                <Button Name="ButtonCalIn" FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}" Background="{x:Null}" 
+                        Click="Button_Cal_In" ClickMode="Press">
+                    <SymbolIcon Symbol="Save" RenderTransformOrigin="0.5,0.5" Height="25" Width="30" 
+                                FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}" VerticalAlignment="Bottom" Margin="0,26,0,0">
+                        <SymbolIcon.RenderTransform>
+                            <CompositeTransform ScaleX="2" ScaleY="2"/>
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                </Button>
+                <!--<Image Name="ButtonCalIn" Source="../Assets/Calibration.png" HorizontalAlignment="Left" Height="60" Margin="20,0,0,0" 
+                       VerticalAlignment="Top" Width="60" Tapped="Button_Cal_In"/>-->
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0">
+                <TextBox Name="pesoRealeUscita" Header="{x:Bind Path=headerCalibrazioneUscita}"
+                         Text="0,0" Width="300" FontSize="20" TextChanged="reloadTimeout"/>
+
+                <!--Bottone Salva a fianco di peso Uscita-->
+                <Button Name="ButtonCalOut" FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}" Background="{x:Null}" 
+                        Click="Button_Cal_Out" ClickMode="Press">
+                    <SymbolIcon Symbol="Save" RenderTransformOrigin="0.5,0.5" Height="25" Width="30" 
+                                FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}" VerticalAlignment="Bottom" Margin="0,26,0,0">
+                        <SymbolIcon.RenderTransform>
+                            <CompositeTransform ScaleX="2" ScaleY="2"/>
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                </Button>
+
+
+                <!--<Image Name="ButtonCalOut" Source="../Assets/Calibration.png" HorizontalAlignment="Left" Height="60" Margin="20,0,0,0" 
+                       VerticalAlignment="Top" Width="60" Tapped="Button_Cal_Out"/>-->
+
+            </StackPanel>
+        </StackPanel>
+    
+        <ProgressRing Name="attesa" IsActive="False" Height="40" Width="40" Foreground="Blue"/>
+
+    </Grid>
+</Page>

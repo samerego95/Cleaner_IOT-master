@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArrestaPulitura" xml:space="preserve">
+    <value>Arresta Pulitura</value>
+  </data>
+  <data name="ArrestoSistema" xml:space="preserve">
+    <value>Arresto Sistema</value>
+  </data>
+  <data name="AvviaPulitura" xml:space="preserve">
+    <value>Avvia Pulitura</value>
+  </data>
+  <data name="CalibrazioneFallita" xml:space="preserve">
+    <value>La calibrazione della pesa non è andata a buon fine. Ripetere l'operazione</value>
+    <comment>Alert box calibrazione fallita</comment>
+  </data>
+  <data name="CalibrazioneOk" xml:space="preserve">
+    <value>La calibrazione della pesa è stata eseguita con successo</value>
+    <comment>Alert box calibrazione ok</comment>
+  </data>
+  <data name="CalibrazionePesoIngresso" xml:space="preserve">
+    <value>Calibrazione Peso Ingresso</value>
+    <comment>Usato in impostazioni avanzate</comment>
+  </data>
+  <data name="CalibrazionePesoUscita" xml:space="preserve">
+    <value>Calibrazione Peso Uscita</value>
+    <comment>USato in impostazioni avanzate</comment>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Esci</value>
+  </data>
+  <data name="CancellaLogMisureHeader" xml:space="preserve">
+    <value>Cancellazione Storico Misure</value>
+  </data>
+  <data name="CancellaLogMisureTesto" xml:space="preserve">
+    <value>Siete sicuri di volere cancellare tutte le misure nello storico? L'operazione è irreversibile.</value>
+  </data>
+  <data name="CassettoPieno" xml:space="preserve">
+    <value>Cassetto di Uscita Pieno</value>
+    <comment>messaggio d'errore</comment>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="headerSlideVentilazione" xml:space="preserve">
+    <value>Potenza Ventilatore</value>
+    <comment>Main page, header slider</comment>
+  </data>
+  <data name="ImpostazioniAvanzate" xml:space="preserve">
+    <value>Impostazioni Avanzate</value>
+  </data>
+  <data name="ImpostazioniGenerali" xml:space="preserve">
+    <value>Impostazioni Generali</value>
+  </data>
+  <data name="Impurita" xml:space="preserve">
+    <value>Impurità</value>
+  </data>
+  <data name="InformazioniSistema" xml:space="preserve">
+    <value>Informazioni Sistema</value>
+    <comment>Usata da about box</comment>
+  </data>
+  <data name="MancaCassettoUscita" xml:space="preserve">
+    <value>Manca il cassetto d'uscita</value>
+    <comment>messaggio d'errore</comment>
+  </data>
+  <data name="Massimo" xml:space="preserve">
+    <value>Peso Massimo</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+    <comment>Usato da slider livello</comment>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+    <comment>Usato da slider livello</comment>
+  </data>
+  <data name="Minimo" xml:space="preserve">
+    <value>Peso Minimo</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+    <comment>Usato per i bottoni</comment>
+  </data>
+  <data name="NomeImpianto" xml:space="preserve">
+    <value>Nome Apparecchiatura</value>
+    <comment>Usato nella pagina impostazioni generali</comment>
+  </data>
+  <data name="Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="NumeroMisuraSigla" xml:space="preserve">
+    <value>Nr.</value>
+  </data>
+  <data name="Ora" xml:space="preserve">
+    <value>Ora</value>
+  </data>
+  <data name="pesoIngresso" xml:space="preserve">
+    <value>Peso Ingresso</value>
+    <comment>main page</comment>
+  </data>
+  <data name="PesoInizialeIngresso" xml:space="preserve">
+    <value>Peso Iniziale Ingresso</value>
+  </data>
+  <data name="PesoInizialeUscita" xml:space="preserve">
+    <value>Peso Iniziale Uscita</value>
+  </data>
+  <data name="PesoPulito" xml:space="preserve">
+    <value>Peso Pulito</value>
+  </data>
+  <data name="pesoUscita" xml:space="preserve">
+    <value>Peso Uscita</value>
+    <comment>main page</comment>
+  </data>
+  <data name="PotenzaVentilatore" xml:space="preserve">
+    <value>Potenza Ventilatore</value>
+  </data>
+  <data name="Prodotto" xml:space="preserve">
+    <value>Prodotto</value>
+  </data>
+  <data name="ProdottoEccedenza" xml:space="preserve">
+    <value>Prodotto in Eccedenza</value>
+  </data>
+  <data name="ProdottoInsufficiente" xml:space="preserve">
+    <value>Prodotto Insufficiente</value>
+  </data>
+  <data name="RimettereIlCassetto" xml:space="preserve">
+    <value>Rimettere il cassetto d'uscita al suo posto</value>
+    <comment>messaggio d'errore</comment>
+  </data>
+  <data name="SceltaProdotti" xml:space="preserve">
+    <value>Scelta Prodotto</value>
+  </data>
+  <data name="Scontrino" xml:space="preserve">
+    <value>Intestazione Apparecchio</value>
+  </data>
+  <data name="Si" xml:space="preserve">
+    <value>Si</value>
+    <comment>Usato per i bottoni</comment>
+  </data>
+  <data name="SicuroCalibraIngresso" xml:space="preserve">
+    <value>Volete calibrare il peso d'ingresso a</value>
+    <comment>Usato in impostazioni avanzate per calibrare peso</comment>
+  </data>
+  <data name="SicuroCalibraUscita" xml:space="preserve">
+    <value>Volete calibrare il peso di uscita a</value>
+    <comment>Usato in impostazioni avanzate per calibrare peso</comment>
+  </data>
+  <data name="SicuroSpegnere" xml:space="preserve">
+    <value>Sei sicuro di volere arrestare il sistema?</value>
+    <comment>in MainPage, pulsante esci</comment>
+  </data>
+  <data name="StoricoMisure" xml:space="preserve">
+    <value>Storico Misure</value>
+  </data>
+  <data name="SvuotareIlCassetto" xml:space="preserve">
+    <value>Svuotare il cassetto d'uscita prima di procedere alla misura</value>
+    <comment>messaggio d'errore</comment>
+  </data>
+  <data name="Tara" xml:space="preserve">
+    <value>Tara</value>
+  </data>
+  <data name="TempoMisura" xml:space="preserve">
+    <value>Tempo Pulitura</value>
+  </data>
+  <data name="TestoProdottoEccedenza" xml:space="preserve">
+    <value>C'è eccedenza di prodotto nella tramoggia.. La quantità di prodotto ammessa è</value>
+  </data>
+  <data name="TestoProdottoInsufficiente" xml:space="preserve">
+    <value>Il prodotto nella tramoggia non è sufficiente per eseguire una misurazione. La quantità di prodotto ammessa è</value>
+  </data>
+  <data name="Versione" xml:space="preserve">
+    <value>Cleaner V1.00</value>
+    <comment>""</comment>
+  </data>
+</root>

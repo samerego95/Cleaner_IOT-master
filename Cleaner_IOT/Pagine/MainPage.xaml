@@ -1,0 +1,204 @@
+﻿<Page
+    x:Class="Cleaner_IOT.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cleaner_IOT"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="800" Height="480"
+    Loading="Page_Loading" Loaded="Page_Loaded">
+
+    <Grid x:Name="PaginaPrincipale" Width="800" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <CommandBar x:Name="BarraPulsanti" Height="40" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top" CompositeMode="Inherit">
+            <CommandBar.Content>
+                <TextBlock Name="HeaderMacchina" Text="Grain Cleaner" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Setting" ClickMode="Press" Click="Impostazioni_Click"/>
+            <AppBarButton Icon="Cancel" ClickMode="Press" Click="Esci_Click"/>
+        </CommandBar>
+
+        <Image Source="..\Assets\MainPageBackground.png" Margin="0,-163,0,163"/>
+
+        <!--Pannello con data/ora e nr misure in linea-->
+        <StackPanel Margin="5,130,405,308" Orientation="Horizontal">
+            <!--Data ed ora-->
+            <Border HorizontalAlignment="Left" Margin="5,5,0,0" Width="220" Background="Yellow" Height="30" VerticalAlignment="Top">
+                <TextBlock HorizontalAlignment="Left" Text="{x:Bind Path=txtOraEdata}"
+                       TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="Bold"/>
+
+            </Border>
+
+            <!--Nr misure effettuate-->
+            <Button Name="bottoneLogMisure" Margin="5,5,0,0" Width="150" Background="GreenYellow" Height="30" VerticalAlignment="Top" 
+                    Padding="0,0,0,0" VerticalContentAlignment="Top" Click="bottoneLogMisure_Click">
+                    
+                <StackPanel Orientation="Horizontal" Margin="0,0,-6,-7">
+                    <TextBlock Text="{x:Bind Path=txtNumeroMisura}" Height="30"
+                    TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="Bold" Width="115"/>
+                    <SymbolIcon Symbol="List" Foreground="Black"/>
+                </StackPanel>
+                    
+            </Button>
+
+        </StackPanel>
+
+        <!--Pannello nome prodotto-->
+        <StackPanel Margin="5,172,405,270" Orientation="Horizontal">
+            <Button Name="bottoneSelezioneProdotto" Margin="5,5,0,0" Width="375" Background="GreenYellow" Height="30" VerticalAlignment="Top" 
+                    Click="CambiaProdotto" Padding="0,0,0,0" VerticalContentAlignment="Top">
+                <StackPanel Orientation="Horizontal" Margin="0,0,-6,-7">
+                    <TextBlock Text="{x:Bind Path=txtNomeProdotto}" Height="30"
+                       TextWrapping="Wrap" FontSize="20" Foreground="Black" FontWeight="Bold" Width="340"/>
+                    <SymbolIcon Symbol="List" Foreground="Black"/>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+        <!--spazio countdown -->
+        <StackPanel  Margin="107,222,533,183" Width="160">
+            <TextBlock x:Name="countdown" Text="{x:Bind txtCountdown}" 
+                       FontSize="70" FontWeight="Bold" Width="147" Height="102" TextAlignment="Center"/>
+        </StackPanel>
+
+        <!--Stack panel per bottoni +/- e play-->
+        <StackPanel Orientation="Horizontal" Margin="40,222,446,133" Height="125">
+            <!--bottone rimuovi tempo-->
+            <Button Name="RemoveTime" ClickMode="Press" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}"
+                    FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" Height="125" VerticalAlignment="Top" Width="69" Click="RemoveTimeClick">
+
+                <SymbolIcon Symbol="Remove" RenderTransformOrigin="0.5,0.5" Width="20" Margin="-1,-8,1,8"  Foreground="GreenYellow">
+                    <SymbolIcon.RenderTransform>
+                        <CompositeTransform ScaleX="3" ScaleY="3" TranslateY="0" TranslateX="0"/>
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+
+            </Button>
+
+            <!--spazio bottone play/pause-->
+            <Button Name="Play" ClickMode="Press" 
+                        FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}" Click="avvioMisura" 
+                            FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" Height="124" VerticalAlignment="Top" Width="162">
+                <StackPanel>
+                    <SymbolIcon Name="PlayIcon" Symbol="Play" RenderTransformOrigin="0.5,0.5" Width="20" 
+                                VerticalAlignment="Stretch" Margin="0,30,0,0" Foreground="GreenYellow">
+                        <SymbolIcon.RenderTransform>
+                            <CompositeTransform ScaleX="4" ScaleY="4" TranslateY="0" TranslateX="0"/>
+                        </SymbolIcon.RenderTransform>
+                    </SymbolIcon>
+                    <TextBlock Text="{x:Bind txtBottonePulitura}" Margin="0,30,0,0"/>
+                </StackPanel>
+            </Button>
+
+            <!--bottone aggiungi tempo-->
+            <Button Name="AddTime" ClickMode="Press" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}"
+                    FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}" Height="125" VerticalAlignment="Top" Width="80" Click="AddTimeClick">
+
+                <SymbolIcon Symbol="Add" RenderTransformOrigin="0.5,0.5" Width="20" Margin="0,-10,0,10"  Foreground="GreenYellow">
+                    <SymbolIcon.RenderTransform>
+                        <CompositeTransform ScaleX="3" ScaleY="3" TranslateY="0" TranslateX="0"/>
+                    </SymbolIcon.RenderTransform>
+                </SymbolIcon>
+
+            </Button>
+
+        </StackPanel>
+
+        <!--Slider della potenza del ventilatore-->
+        <Slider Name="SliderVentilazione" Header="{x:Bind headerVentilazione}" Minimum="0" Maximum="100" IntermediateValue="50"
+                Width="370" HorizontalAlignment="Left" Margin="10,353,0,57" TickFrequency="20" TickPlacement="Outside"
+                IsThumbToolTipEnabled="True"/>
+
+        <ProgressBar Name="barraProgressione" Minimum="0" Maximum="100" Value="0" IsIndeterminate="false"
+                     Width="370" HorizontalAlignment="Left" Margin="10,440,0,0" Height="15" VerticalAlignment="Top"/>
+
+        <!--Pannello di destra con pesi ed impurità-->
+        <StackPanel Margin="400,130,10,20">
+            <!--Visualizzazione peso ingresso-->
+            <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,0,0,0" 
+                       Text="{x:Bind Path=txtPesoIngresso}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal"  BorderBrush="White" BorderThickness="1">
+                <TextBlock Margin="5,0,0,0" Text="{x:Bind Path=valPesoIngresso}" TextWrapping="Wrap" Foreground="{x:Bind Path=colorePesoIngresso}"
+                        VerticalAlignment="Top" FontSize="50" FontWeight="Bold" FontStyle="Italic" Width="300" Height="70"/>
+
+                <Button Name="bottoneTaraIngresso" ClickMode="Press"
+                    Height="70" Width="70" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Click="TaraIngressoClick" 
+                        FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}">
+                    <StackPanel>
+                        <SymbolIcon Symbol="Clear" RenderTransformOrigin="0.5,0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1.3" ScaleY="1.3"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="{x:Bind Path=txtTara}"/>
+                    </StackPanel>
+                </Button>
+
+                <!--<Button FontFamily="Segoe MDL2 Assets" Content="&#xE106;" ClickMode="Press"
+                    Height="70" Width="70" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="TaraIngressoClick" FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}"/>-->
+
+                <!--<Image Height="70" Width="70" Source="../Assets/tareIcon.jpg" Tapped="TaraIngresso" Margin="0,0,50,0"/>-->
+            </StackPanel>
+
+            <!--Visualizzazione peso uscita-->
+            <TextBlock FontSize="16" FontWeight="Bold"  HorizontalAlignment="Left" Margin="5,20,0,0" 
+                       Text="{x:Bind Path=txtPesoUscita}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal"  BorderBrush="White" BorderThickness="1">
+                <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" Text="{x:Bind Path=valPesoUscita}" TextWrapping="Wrap" 
+                        VerticalAlignment="Top" FontSize="50" FontWeight="Bold" FontStyle="Italic" Width="300" Height="70"
+                           Foreground="{x:Bind colorePesoUscita}"/>
+
+                <Button Name="bottoneTaraUscita" ClickMode="Press"
+                    Height="70" Width="70" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Click="TaraUscitaClick" 
+                        FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}">
+                    <StackPanel>
+                        <SymbolIcon Symbol="Clear" RenderTransformOrigin="0.5,0.5">
+                            <SymbolIcon.RenderTransform>
+                                <CompositeTransform ScaleX="1.3" ScaleY="1.3"/>
+                            </SymbolIcon.RenderTransform>
+                        </SymbolIcon>
+                        <TextBlock Text="{x:Bind Path=txtTara}"/>
+                    </StackPanel>
+                </Button>
+
+                <!--<Button FontFamily="Segoe MDL2 Assets" Content="&#xE106;" ClickMode="Press"
+                    Height="70" Width="70" FontSize="30" Background="{x:Null}" BorderBrush="{x:Null}" Click="TaraUscitaClick" FocusVisualSecondaryBrush="{x:Null}" FocusVisualPrimaryBrush="{x:Null}"/>-->
+
+                <!--<Image Height="70" Width="70" Source="../Assets/tareIcon.jpg" Tapped="TaraUscita"/>-->
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Left" Margin="5,20,0,0" Text="{x:Bind Path=txtImpurita}" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" Text="{x:Bind Path=valImpurita}" TextWrapping="Wrap" 
+                    VerticalAlignment="Top" FontSize="60" FontWeight="Bold" FontStyle="Italic" Width="250" Height="70"/>
+
+
+            <!--<TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" Text="Peso Ingresso" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="5,0,0,0" Text="0.0g" TextWrapping="Wrap" 
+                       VerticalAlignment="Top" FontSize="50" FontWeight="Bold" FontStyle="Italic" Width="300" Height="70"/>
+                <Image Height="70" Width="70" Source="../Assets/tareIcon.jpg" Tapped="TaraIngresso" Margin="0,0,50,0"/>
+            </StackPanel>
+
+            <TextBlock HorizontalAlignment="Left" Margin="5,20,0,0" Text="Peso Uscita" TextWrapping="Wrap" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" Text="0.0g" TextWrapping="Wrap" 
+                       VerticalAlignment="Top" FontSize="50" FontWeight="Bold" FontStyle="Italic" Width="300" Height="70"/>
+
+                <Image Height="70" Width="70" Source="../Assets/tareIcon.jpg" Tapped="TaraUscita"/>
+            </StackPanel>
+            
+            <TextBlock HorizontalAlignment="Left" Margin="5,20,0,0" Text="Impurità" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" Text="0.0 %" TextWrapping="Wrap" 
+                    VerticalAlignment="Top" FontSize="60" FontWeight="Bold" FontStyle="Italic" Width="300" Height="70"/>-->
+
+        </StackPanel>
+
+        <ProgressRing Name="attesa" IsActive="False" Height="40" Width="40" Foreground="Blue"/>
+
+    </Grid>
+</Page>

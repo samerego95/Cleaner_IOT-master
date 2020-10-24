@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="Cleaner_IOT.LogMisure"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cleaner_IOT"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="800" Height="480"
+    Loading="Page_Loading" Loaded="Page_Loaded">
+
+    <Grid Width="800" Height="480" HorizontalAlignment="Left" VerticalAlignment="Top" GotFocus="Grid_GotFocus">
+        <CommandBar Margin="0,0,0,0" Height="40" Width="800" HorizontalAlignment="Left">
+            <CommandBar.Content>
+                <TextBlock Text="{x:Bind Path=txtHeader}" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Margin="10,0,0,0"/>
+            </CommandBar.Content>
+            <AppBarButton Icon="ViewAll" ClickMode="Press" Click="ToggleView_Click" />
+            <AppBarButton Icon="Delete" ClickMode="Press" Click="Clear_ClickAsync"/>
+            <AppBarButton Icon="Back" ClickMode="Press" Click="Esci_Click"/>
+        </CommandBar>
+
+        <Custom:DataGrid x:Name="GrigliaDati" HorizontalAlignment="Left" Height="386" Margin="28,64,0,0" 
+                         VerticalAlignment="Top" Width="712" ItemsSource="{x:Bind mis}" 
+                         LoadingRow="GrigliaDati_LoadingRow" BeginningEdit="GrigliaDati_BeginningEdit" CellEditEnded="GrigliaDati_CellEditEnded"/>
+
+        <ProgressRing Name="attesa" IsActive="True" Height="40" Width="40" Foreground="Blue"/>
+
+    </Grid>
+</Page>
